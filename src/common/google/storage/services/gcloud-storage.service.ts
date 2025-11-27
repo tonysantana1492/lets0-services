@@ -2,7 +2,7 @@ import type { Bucket } from '@google-cloud/storage';
 import type { SaveData } from '@google-cloud/storage/build/cjs/src/file';
 import { Inject, Injectable, Logger } from '@nestjs/common';
 
-import { Storage } from '@google-cloud/storage';
+import { Storage as GoogleStorage } from '@google-cloud/storage';
 
 import type { ISaveMetadata } from '../interfaces/gcloud-storage.interface';
 import { GCLOUD_STORAGE_CONFIG } from '../constants/gcloud-storage.constants';
@@ -12,12 +12,15 @@ import { IGCloudStorageModuleOptions } from '../interfaces/gcloud-storage.interf
 export class GCloudStorageService {
   private readonly logger: Logger = new Logger(GCloudStorageService.name);
 
-  readonly storage: Storage;
+  readonly storage: GoogleStorage;
 
   readonly bucket: Bucket;
 
   constructor(@Inject(GCLOUD_STORAGE_CONFIG) options: IGCloudStorageModuleOptions) {
-    this.storage = new Storage({ projectId: options.projectId, keyFilename: options.keyFilename });
+    this.storage = new GoogleStorage({
+      projectId: options.projectId,
+      keyFilename: options.keyFilename,
+    });
     this.bucket = this.storage.bucket(options.bucketName);
   }
 

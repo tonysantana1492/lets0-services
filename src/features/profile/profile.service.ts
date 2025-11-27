@@ -29,8 +29,9 @@ export class ProfileService {
       throw new AppRequestException(ERROR_CODES.WORKSPACE_DEFAULT_PROFILE_NOT_FOUND);
     }
 
-    // @ts-expect-error
-    const profile = await this.getById(workspace.defaultProfileId.toHexString());
+    const profile = await this.getById(
+      (workspace.defaultProfileId as Types.ObjectId).toHexString(),
+    );
 
     return profile;
   }

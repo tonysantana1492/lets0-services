@@ -92,7 +92,7 @@ export class NotificationService {
     return await this.notificationRepo.softDelete(notification);
   }
 
-  async getLatestNotifications(retailer: string): Promise<NotificationDoc[]> {
+  async getLatestNotifications(): Promise<NotificationDoc[]> {
     return this.notificationRepo.findAll(
       { createdAt: { $gte: this.helperDateService.backwardInDays(7) } },
       {

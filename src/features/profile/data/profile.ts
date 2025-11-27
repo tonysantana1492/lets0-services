@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { type ProfileEntity } from '@/features/profile/repository/entities/profile.entity';
 
 export const PROFILE: Partial<ProfileEntity> = {
