@@ -1,0 +1,7 @@
+{
+  "error": {
+    "workspaceNotFound": "Workspace not found",
+    "defaultProfileNotFound": "Default profile not found",
+    "alreadyHasSubdomain": "Workspace already has a subdomain"
+  }
+}

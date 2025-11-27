@@ -1,0 +1,29 @@
+{
+  "common": {
+    "footerWelcome": "Nos encanta saber de ti.",
+    "footerQuestions": "Si tienes alguna pregunta, por favor",
+    "footerEmailLink": " contáctanos",
+    "contactEmail": "admin@lets0.com"
+  },
+  "verifyEmail": {
+    "linkText": "Verifica tu correo electrónico",
+    "principalText": "¡Has sido invitado!",
+    "secondaryText": "Gracias por registrarte en Let's 0!. Por favor, haz clic en el enlace a continuación para verificar tu correo electrónico y configurar tu contraseña.",
+    "subject": "Acción requerida: Confirma tu correo electrónico para unirte a Let's 0!"
+  },
+  "onboardEmail": {
+    "linkText": "Iniciar sesión",
+    "principalText": "¡Bienvenido a la plataforma Let's 0!",
+    "secondaryText": "¡Gracias por completar la configuración de tu cuenta! ¡Felicidades por comenzar tu viaje con Let's 0!. Estamos emocionados de que estés aquí y no podemos esperar para ayudarte a comenzar.",
+    "subject": "¡Bienvenido a bordo! Accede a la plataforma Let's 0! ahora"
+  },
+  "forgotPassword": {
+    "linkText": "Restablecer tu contraseña",
+    "principalText": "Hemos recibido una solicitud para restablecer tu contraseña.",
+    "secondaryText": "Haz clic en el botón de abajo para configurar una nueva contraseña para tu cuenta. Si no solicitaste restablecer tu contraseña, ignora este correo.",
+    "subject": "Acción requerida: Restablece tu contraseña"
+  },
+  "error": {
+    "emailSend": "Error enviando el correo"
+  }
+}

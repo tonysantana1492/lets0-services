@@ -1,0 +1,10 @@
+{
+  "error": {
+    "notFound": "Archivo no encontrado",
+    "maxSize": "El tamaño del archivo es demasiado grande",
+    "maxFiles": "Demasiados archivos",
+    "mimeInvalid": "Extensión de archivo no válida",
+    "needExtractFirst": "Se necesita extraer los datos primero",
+    "validationDto": "Datos de importación inválidos"
+  }
+}

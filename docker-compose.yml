@@ -1,0 +1,47 @@
+services:
+  # pubsub-emulator:
+  #   image: google/cloud-sdk
+  #   container_name: pubsub-emulator
+  #   command: >
+  #     gcloud beta emulators pubsub start
+  #     --host-port=0.0.0.0:8085
+  #   ports:
+  #     - '8085:8085' # Expose the emulator on port 8085
+  #   environment:
+  #     - PUBSUB_EMULATOR_HOST=localhost:8085
+
+  # lets0-services:
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: .
+  #     target: development
+  #   depends_on:
+  #     - lets0-db
+  #   volumes:
+  #     - .:/usr/src/app
+  #   env_file:
+  #     - .env
+  #   command: npm run start:dev
+  #   ports:
+  #     - '5500:5000'
+
+  lets0-db:
+    image: mongo:6.0
+    container_name: lets0-db
+    ports:
+      - '37017:27017'
+    command: ['mongod', '--replSet', 'rs0', '--bind_ip_all']
+    volumes:
+      - ./mongo:/data/db
+    healthcheck:
+      test: >
+        bash -c '
+          echo "try { rs.status() } catch(e) { rs.initiate({_id:\"rs0\",members:[{_id:0,host:\"localhost:27017\"}]}); }" |
+          mongosh --quiet --port 27017
+        '
+      interval: 5s
+      timeout: 30s
+      retries: 10
+
+volumes:
+  lets0-services: {}

@@ -1,0 +1,40 @@
+name: Release
+
+concurrency:
+  group: ${{ github.ref_name }}
+  # cancel-in-progress: true
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref_name }}
+      url: ${{ github.event.ref == 'refs/heads/main' && 'https://production.app.services.lets0.cloud' }}
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      # https://github.com/marketplace/actions/wait-for-checks
+      - name: Wait for Google Cloud build Checks
+        uses: poseidon/wait-for-status-checks@v0.4.1
+        with:
+          token: ${{ secrets.GH_RB_TECH_TOKEN }}
+          interval: 10s
+          timeout: 3600s
+          delay: 30s
+
+      - name: Release
+        if: success()
+        uses: googleapis/release-please-action@v4
+        with:
+          token: ${{ secrets.GH_RB_TECH_TOKEN }}
+          # repo-url is needed to fix prefix issue
+          # target-branch: staging
+          release-type: node

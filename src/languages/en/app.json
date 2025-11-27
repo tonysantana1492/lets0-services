@@ -1,0 +1,5 @@
+{
+  "error": {
+    "envConfigMissing": "Some env configuration is missing"
+  }
+}

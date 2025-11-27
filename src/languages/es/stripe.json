@@ -1,0 +1,12 @@
+{
+  "error": {
+    "secretKeyNotFound": "Clave secreta de Stripe no encontrada",
+    "webhookSecretKeyNotFound": "Clave secreta del webhook de Stripe no encontrada",
+    "unsupportedEventType": "Tipo de evento de Stripe no compatible",
+    "webhookError": "Error en el webhook de Stripe",
+    "invalidPaymentIntentId": "ID de intención de pago inválida",
+    "invalidSubscriptionId": "ID de suscripción inválida",
+    "invalidPriceId": "ID de precio inválida",
+    "subscriptionNotFound": "Suscripción no encontrada"
+  }
+}

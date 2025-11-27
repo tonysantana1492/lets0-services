@@ -1,0 +1,11 @@
+{
+  "error": {
+    "sessionNotFound": "Session not found",
+    "sessionExpired": "Session has expired",
+    "invalidSession": "Invalid session",
+    "sessionAlreadyExists": "Session already exists",
+    "sessionCreationFailed": "Failed to create session",
+    "sessionDeletionFailed": "Failed to delete session",
+    "sessionUpdateFailed": "Failed to update session"
+  }
+}

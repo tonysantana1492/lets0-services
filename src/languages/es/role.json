@@ -1,0 +1,18 @@
+{
+  "list": "Lista de roles exitosa.",
+  "get": "Obtener rol exitoso.",
+  "create": "Creación exitosa",
+  "update": "Actualización exitosa",
+  "updatePermission": "Actualización de permiso exitosa",
+  "delete": "Eliminación exitosa",
+  "inactive": "Desactivación exitosa",
+  "active": "Activación exitosa",
+  "error": {
+    "notFound": "Rol no encontrado",
+    "inactive": "El rol está inactivo",
+    "exist": "El rol existe",
+    "used": "Rol en uso",
+    "isActiveInvalid": "El rol está activado de forma inválida",
+    "typeForbidden": "Tipo de rol no permitido"
+  }
+}

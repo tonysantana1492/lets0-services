@@ -1,0 +1,11 @@
+{
+  "error": {
+    "gmailAuthUrl": "Error al generar la URL de OAuth2",
+    "gmailGetUserProfile": "Error al obtener el perfil de usuario de Google",
+    "gmailGetMailsByAccount": "Error al recuperar los correos electrónicos para la cuenta especificada",
+    "gmailAccountNotFound": "No se pudieron recuperar los correos electrónicos de la cuenta de Gmail especificada. Por favor, asegúrate de que la cuenta exista y esté correctamente configurada",
+    "gmailInvalidAccount": "La cuenta de Gmail proporcionada es inválida. Por favor, verifica los detalles de la cuenta e inténtalo de nuevo",
+    "gmailRefreshToken": "Error al refrescar el token de acceso de Gmail",
+    "gmailRefreshTokenNotFound": "El refresh token para la cuenta de Gmail no fue encontrado"
+  }
+}

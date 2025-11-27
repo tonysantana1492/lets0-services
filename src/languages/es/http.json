@@ -1,0 +1,65 @@
+{
+  "success": {
+    "ok": "OK",
+    "created": "Creado",
+    "accepted": "Aceptado",
+    "noContent": "Sin Contenido"
+  },
+  "redirection": {
+    "movePermanently": "Mover Permanentemente",
+    "found": "Encontrado",
+    "notModified": "No Modificado",
+    "temporaryRedirect": "Redirección Temporal",
+    "permanentRedirect": "Redirección Permanente"
+  },
+  "clientError": {
+    "badRequest": "Solicitud Incorrecta",
+    "unauthorized": "No Autorizado",
+    "forbidden": "Prohibido",
+    "notFound": "No Encontrado",
+    "methodNotAllowed": "Método No Permitido",
+    "notAcceptable": "No Aceptable",
+    "payloadToLarge": "Carga Útil Demasiado Grande",
+    "uriToLarge": "URI Demasiado Grande",
+    "unsupportedMediaType": "Tipo de Medio No Soportado",
+    "unprocessableEntity": "Entidad No Procesable",
+    "tooManyRequest": "Demasiadas Solicitudes"
+  },
+  "serverError": {
+    "internalServerError": "Error Interno del Servidor",
+    "notImplemented": "No Implementado",
+    "badGateway": "Puerta de Enlace Incorrecta",
+    "serviceUnavailable": "Servicio No Disponible",
+    "gatewayTimeout": "Tiempo de Espera de la Puerta de Enlace"
+  },
+
+  "200": "OK",
+
+  "201": "Creado",
+  "202": "Aceptado",
+  "204": "Sin Contenido",
+
+  "301": "Mover Permanentemente",
+  "302": "Encontrado",
+  "304": "No Modificado",
+  "307": "Redirección Temporal",
+  "308": "Redirección Permanente",
+
+  "400": "Solicitud Incorrecta",
+  "401": "No Autorizado",
+  "403": "Prohibido",
+  "404": "No Encontrado",
+  "405": "Método No Permitido",
+  "406": "No Aceptable",
+  "413": "Carga Útil Demasiado Grande",
+  "414": "URI Demasiado Grande",
+  "415": "Tipo de Medio No Soportado",
+  "422": "Entidad No Procesable",
+  "429": "Demasiadas Solicitudes",
+
+  "500": "Error Interno del Servidor",
+  "501": "No Implementado",
+  "502": "Puerta de Enlace Incorrecta",
+  "503": "Servicio No Disponible",
+  "504": "Tiempo de Espera de la Puerta de Enlace"
+}

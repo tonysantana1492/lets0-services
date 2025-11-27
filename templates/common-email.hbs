@@ -1,0 +1,150 @@
+<html
+  xmlns='http://www.w3.org/1999/xhtml'
+  xmlns:v='urn:schemas-microsoft-com:vml'
+  xmlns:o='urn:schemas-microsoft-com:office:office'
+>
+  <head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='x-apple-disable-message-reformatting' />
+
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+
+    <title>{{subject}}</title>
+    <style>
+      .footer {
+        text-align: center;
+        font-size: 12px;
+        color: #666;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      style="
+      margin: auto;
+      text-align: center;
+      align-self: stretch;
+      padding-bottom: 20px;
+      padding-top: 20px;
+      width: 100%;
+      box-sizing: border-box;
+      font-family: 'Inter-SemiBold', Helvetica;
+    "
+    >
+      <div
+        style='
+        max-width: 700px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 0 auto;
+        padding: 22px 24px 67px 24px;
+      '
+      >
+        <div
+          style='
+      position: relative;
+      width: 267px;
+      height: 150px;
+      margin: 0 auto;
+      background-image: url(https://cdn.siduslink.com/siduslink/assets/confetti.png);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-bottom: 50px;
+    '
+        >
+          <img
+            src='https://cdn.siduslink.com/siduslink/assets/verify-email.png'
+            style='
+        width: 160px;
+        height: 160px;
+        padding-top: 30px;
+        padding-left: 20px;
+        margin: auto;
+      '
+          />
+        </div>
+        <h1
+          style='
+          font-size: 18px;
+          color: #111928;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 36px;
+          letter-spacing: -0.24px;
+        '
+        >
+          {{principalText}}
+        </h1>
+        <p
+          style='
+          font-size: 16px;
+          font-weight: 400;
+          color: #6b7280;
+          line-height: 24px;
+          letter-spacing: 0;
+          margin-top: 8px;
+          margin-bottom: 25px;
+          padding: 0px 40px;
+        '
+        >
+          {{secondaryText}}
+        </p>
+        <div>
+          <a
+            href='{{link}}'
+            style='
+            font-size: 14px;
+            font-weight: 500;
+            color: #ffffff;
+            background-color: #1a56db;
+            letter-spacing: 0;
+            line-height: 21px;
+            white-space: nowrap;
+            text-decoration: none;
+            border-radius: 8px;
+            padding: 10px 50px;
+          '
+          >
+            {{linkText}}
+          </a>
+        </div>
+      </div>
+      <p
+        style='
+        margin-top: 27px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0;
+        color: #1f2a37;
+      '
+      >
+        <span>{{footerWelcome}}<br />{{footerQuestions}}
+        </span>
+        <a
+          href='mailto:{{contactEmail}}'
+          style='color: #1c64f2; text-decoration: none'
+        >{{footerEmailLink}}</a>
+        <span>.</span>
+      </p>
+
+      {{#if deviceInfo}}
+        <div class='info-box'>
+          <p><strong>{{timeLabel}}:</strong> {{time}}</p>
+          <p><strong>{{ipLabel}}:</strong> {{ip}}</p>
+          <p><strong>{{deviceInfoLabel}}:</strong> {{deviceInfo}}</p>
+        </div>
+      {{/if}}
+
+      <div class='footer'>
+        <p>{{credits}}</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "list": "Obtener lista de claves API exitoso",
+  "get": "Obtener detalles de la clave API exitoso",
+  "create": "Crear clave API exitoso",
+  "reset": "Restablecer clave API exitoso",
+  "update": "Actualizar clave API exitoso",
+  "inactive": "Clave API inactiva exitosa",
+  "active": "Clave API activa exitosa",
+  "updateDate": "Actualizar fecha de la clave API exitosa",
+  "delete": "Eliminar clave API exitosa",
+  "error": {
+    "exist": "La clave API existe",
+    "isActiveInvalid": "La clave API está activada de forma inválida",
+    "expired": "La clave API ha expirado",
+    "notFound": "Clave API no encontrada",
+    "keyNeeded": "Falta la clave API",
+    "inactive": "API de autenticación inactiva",
+    "notActiveYet": "La clave API aún no está activa",
+    "invalid": "Clave API inválida",
+    "typeInvalid": "Tipo de clave API inválido"
+  }
+}

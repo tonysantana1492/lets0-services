@@ -1,0 +1,6 @@
+{
+  "error": {
+    "internalDatabase": "Have been an error during a database operation",
+    "duplicateKey": "This value already exists"
+  }
+}

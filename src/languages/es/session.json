@@ -1,0 +1,11 @@
+{
+  "error": {
+    "sessionNotFound": "Sessión no encontrada",
+    "sessionExpired": "Sessión expirada",
+    "invalidSession": "Invalid session",
+    "sessionAlreadyExists": "Esta sessión ya existe",
+    "sessionCreationFailed": "Fallo al crear la sessión",
+    "sessionDeletionFailed": "Fallo al eliminar la sessión",
+    "sessionUpdateFailed": "Fallo al actualizar la sessión"
+  }
+}

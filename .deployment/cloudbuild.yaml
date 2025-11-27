@@ -1,0 +1,105 @@
+# Substitution variables used across the build configuration
+substitutions:
+  _SERVICE_NAME: platform-services
+  _REGION: us-central1
+  _PORT: '8080' # Google Cloud default
+
+# Options for build such as logging and dynamic substitutions
+options:
+  logging: CLOUD_LOGGING_ONLY
+  dynamicSubstitutions: true
+
+# Steps define the sequence of operations that will be performed by the build
+steps:
+  # Install npm dependencies
+  - name: 'gcr.io/cloud-builders/npm'
+    id: 'npm-install'
+    entrypoint: 'npm'
+    args:
+      - 'install'
+
+  # Import environment variables from Google Cloud Secret Manager
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'import-env'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - 'gcloud secrets versions access latest --secret=${_SERVICE_NAME}-$BRANCH_NAME --out-file=.env'
+    waitFor:
+      - 'npm-install'
+
+  # Import Google Cloud Storage key for admin access
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'import-google-storage-key'
+    entrypoint: 'bash'
+    args:
+      [
+        '-c',
+        'gcloud secrets versions access latest --secret=google-storage-key-admin --out-file=certs/googleBucketKey.json',
+      ]
+    waitFor: ['import-env']
+
+  # Import Google Cloud Gmail key for admin access
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'import-google-gmail-key'
+    entrypoint: 'bash'
+    args:
+      [
+        '-c',
+        'gcloud secrets versions access latest --secret=google-gmail-key-admin --out-file=certs/googleGmailKey.json',
+      ]
+    waitFor: ['import-google-storage-key']
+
+  # Import Google Cloud PubSub key for admin access
+  # - name: 'gcr.io/cloud-builders/gcloud'
+  #   id: 'import-google-pubsub-key'
+  #   entrypoint: 'bash'
+  #   args: [ '-c', 'gcloud secrets versions access latest --secret=platform-services-pub-sub --out-file=certs/platform-services-pub-sub.json' ]
+  #   waitFor: [ 'import-google-gmail-key' ]
+
+  # Build Docker image using the Dockerfile present in the working directory
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'build-docker-image'
+    args:
+      - 'build'
+      - '-t'
+      - 'us-docker.pkg.dev/$PROJECT_ID/${_SERVICE_NAME}/${_SERVICE_NAME}-$BRANCH_NAME:$SHORT_SHA'
+      - '.'
+    waitFor: ['import-google-gmail-key']
+
+  # Push the built Docker image to Google Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'push-docker-image'
+    args:
+      - 'push'
+      - 'us-docker.pkg.dev/$PROJECT_ID/${_SERVICE_NAME}/${_SERVICE_NAME}-$BRANCH_NAME:$SHORT_SHA'
+    waitFor:
+      - 'build-docker-image'
+
+  # Deploy Cloud Run service for the producer
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    id: 'deploy-cloud-run'
+    entrypoint: 'gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - '${_SERVICE_NAME}-$BRANCH_NAME'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--vpc-connector'
+      - '${_MONGO_VPC_CONNECTOR}'
+      - '--vpc-egress'
+      - 'private-ranges-only'
+      - '--region'
+      - '${_REGION}'
+      - '--port'
+      - '${_PORT}'
+      - '--image'
+      - 'us-docker.pkg.dev/$PROJECT_ID/${_SERVICE_NAME}/${_SERVICE_NAME}-$BRANCH_NAME:$SHORT_SHA'
+      - '--min-instances'
+      - '${_MIN_INSTANCES}'
+    waitFor: ['push-docker-image']
+
+images:
+  - 'us-docker.pkg.dev/$PROJECT_ID/${_SERVICE_NAME}/${_SERVICE_NAME}-$BRANCH_NAME:$SHORT_SHA'

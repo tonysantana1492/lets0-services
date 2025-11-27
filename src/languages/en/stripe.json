@@ -1,0 +1,12 @@
+{
+  "error": {
+    "secretKeyNotFound": "Stripe secret key not found",
+    "webhookSecretKeyNotFound": "Stripe webhook secret not found",
+    "unsupportedEventType": "Stripe unsupported event type",
+    "webhookError": "Stripe webhook error",
+    "invalidPaymentIntentId": "Invalid payment intent id",
+    "invalidSubscriptionId": "Invalid subscription id",
+    "invalidPriceId": "Invalid price id",
+    "subscriptionNotFound": "Subscription not found"
+  }
+}

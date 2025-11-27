@@ -1,0 +1,1 @@
+export const GCLOUD_STORAGE_CONFIG = Symbol('GCLOUD_STORAGE_BUCKET');

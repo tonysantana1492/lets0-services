@@ -1,0 +1,7 @@
+{
+  "error": {
+    "secretNotFound": "Missing Cloudflare Turnstile Secret",
+    "codeNotFound": "Missing Cloudflare Turnstile Code",
+    "errorDuringVerification": "Failed Turnstile Verification"
+  }
+}
